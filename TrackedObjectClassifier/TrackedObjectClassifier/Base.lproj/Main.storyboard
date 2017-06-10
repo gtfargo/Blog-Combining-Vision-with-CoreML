@@ -27,6 +27,24 @@
                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QNK-3h-dSl" customClass="TrackingView" customModule="TrackedObjectClassifier" customModuleProvider="target">
                                 <rect key="frame" x="0.5" y="0.5" width="375" height="667"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wtX-nd-Zem">
+                                        <rect key="frame" x="100" y="263" width="81.5" height="29"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Baby Bird" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wxL-2w-VDD">
+                                                <rect key="frame" x="4" y="4" width="73.5" height="21"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="wxL-2w-VDD" secondAttribute="bottom" constant="4" id="AX4-Jg-GCB"/>
+                                            <constraint firstItem="wxL-2w-VDD" firstAttribute="top" secondItem="wtX-nd-Zem" secondAttribute="top" constant="4" id="H7d-8R-NL9"/>
+                                            <constraint firstItem="wxL-2w-VDD" firstAttribute="leading" secondItem="wtX-nd-Zem" secondAttribute="leading" constant="4" id="g8y-eR-Sbk"/>
+                                            <constraint firstAttribute="trailing" secondItem="wxL-2w-VDD" secondAttribute="trailing" constant="4" id="yNz-dS-zdy"/>
+                                        </constraints>
+                                    </view>
                                     <view opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hvJ-rY-SSy">
                                         <rect key="frame" x="100" y="100" width="100" height="100"/>
                                         <color key="backgroundColor" red="1" green="0.1450980392" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -48,6 +66,8 @@
                                 <constraints>
                                     <constraint firstItem="YLr-ms-4dD" firstAttribute="top" secondItem="QNK-3h-dSl" secondAttribute="top" constant="300" id="6gT-Y3-gkG"/>
                                     <constraint firstItem="YLr-ms-4dD" firstAttribute="leading" secondItem="QNK-3h-dSl" secondAttribute="leading" constant="100" id="YaX-bs-s75"/>
+                                    <constraint firstItem="YLr-ms-4dD" firstAttribute="top" secondItem="wtX-nd-Zem" secondAttribute="bottom" constant="8" symbolic="YES" id="bAQ-hP-gzM"/>
+                                    <constraint firstItem="wtX-nd-Zem" firstAttribute="leading" secondItem="YLr-ms-4dD" secondAttribute="leading" id="dvk-df-PJU"/>
                                     <constraint firstItem="hvJ-rY-SSy" firstAttribute="leading" secondItem="QNK-3h-dSl" secondAttribute="leading" constant="100" id="mie-nx-uPi"/>
                                     <constraint firstItem="hvJ-rY-SSy" firstAttribute="top" secondItem="QNK-3h-dSl" secondAttribute="top" constant="100" id="qoP-Qq-m77"/>
                                 </constraints>
@@ -61,6 +81,7 @@
                                     <outlet property="yellowLeadingConstraint" destination="YaX-bs-s75" id="6ay-Yg-LE5"/>
                                     <outlet property="yellowTopConstraint" destination="6gT-Y3-gkG" id="yxD-Fr-XjE"/>
                                     <outlet property="yellowView" destination="YLr-ms-4dD" id="5Ax-w2-X9P"/>
+                                    <outlet property="yellowViewLabel" destination="wxL-2w-VDD" id="3QJ-ex-pdr"/>
                                     <outlet property="yellowWidthConstraint" destination="ohB-h1-d80" id="09c-9r-mvE"/>
                                 </connections>
                             </view>

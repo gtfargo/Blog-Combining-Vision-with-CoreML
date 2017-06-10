@@ -36,9 +36,15 @@ class TrackingView: UIView {
         }
     }
     
+    @IBOutlet private weak var yellowViewLabel: UILabel?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.reset()
+    }
+    
+    func setYellowViewLabelText(_ text: String?) {
+        self.yellowViewLabel?.text = text
     }
     
     func setYellowCenterFrame(_ frame: CGRect) {
@@ -68,6 +74,7 @@ class TrackingView: UIView {
     func reset() {
         self.setYellowCenterFrame(.zero)
         self.setRedCenterFrame(.zero)
+        self.setYellowViewLabelText(nil)
     }
     
     override func prepareForInterfaceBuilder() {
