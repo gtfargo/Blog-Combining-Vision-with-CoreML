@@ -13,13 +13,7 @@ import UIKit
 class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
     
     @IBOutlet private weak var cameraView: UIView?
-    @IBOutlet private weak var highlightView: UIView? {
-        didSet {
-            self.highlightView?.layer.borderColor = UIColor.red.cgColor
-            self.highlightView?.layer.borderWidth = 4
-            self.highlightView?.backgroundColor = .clear
-        }
-    }
+    @IBOutlet private weak var trackingView: TrackingView?
     
     private let visionSequenceHandler = VNSequenceRequestHandler()
     private lazy var cameraLayer: AVCaptureVideoPreviewLayer = AVCaptureVideoPreviewLayer(session: self.captureSession)
@@ -36,9 +30,6 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // hide the red focus area on load
-        self.highlightView?.frame = .zero
         
         // make the camera appear on the screen
         self.cameraView?.layer.addSublayer(self.cameraLayer)
@@ -95,7 +86,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
             // check the confidence level before updating the UI
             guard newObservation.confidence >= 0.3 else {
                 // hide the rectangle when we lose accuracy so the user knows something is wrong
-                self.highlightView?.frame = .zero
+                self.trackingView?.setRedCenterFrame(.zero)
                 return
             }
             
@@ -105,18 +96,17 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
             let convertedRect = self.cameraLayer.layerRectConverted(fromMetadataOutputRect: transformedRect)
             
             // move the highlight view
-            self.highlightView?.frame = convertedRect
+            self.trackingView?.setRedCenterFrame(convertedRect)
         }
     }
     
     @IBAction private func userTapped(_ sender: UITapGestureRecognizer) {
         // get the center of the tap
-        self.highlightView?.frame.size = CGSize(width: 120, height: 120)
-        self.highlightView?.center = sender.location(in: self.view)
+        let tapRect = CGRect(origin: sender.location(in: self.view), size: CGSize(width: 120, height: 120))
+        self.trackingView?.setRedCenterFrame(tapRect)
         
         // convert the rect for the initial observation
-        let originalRect = self.highlightView?.frame ?? .zero
-        var convertedRect = self.cameraLayer.metadataOutputRectConverted(fromLayerRect: originalRect)
+        var convertedRect = self.cameraLayer.metadataOutputRectConverted(fromLayerRect: tapRect)
         convertedRect.origin.y = 1 - convertedRect.origin.y
         
         // set the observation
@@ -126,7 +116,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     
     @IBAction private func resetTapped(_ sender: UIBarButtonItem) {
         self.lastObservation = nil
-        self.highlightView?.frame = .zero
+        self.trackingView?.reset()
     }
 }
 

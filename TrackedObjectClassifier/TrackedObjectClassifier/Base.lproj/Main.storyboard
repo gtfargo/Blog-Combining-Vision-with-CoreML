@@ -11,7 +11,7 @@
         <!--Tap to Track-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ObjectTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TrackedObjectClassifier" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -21,22 +21,61 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N09-9N-jgI">
-                                <rect key="frame" x="-0.5" y="-0.5" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hvJ-rY-SSy">
-                                <rect key="frame" x="67" y="234" width="83" height="83"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.1450980392" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QNK-3h-dSl" customClass="TrackingView" customModule="TrackedObjectClassifier" customModuleProvider="target">
+                                <rect key="frame" x="0.5" y="0.5" width="375" height="667"/>
+                                <subviews>
+                                    <view opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hvJ-rY-SSy">
+                                        <rect key="frame" x="100" y="100" width="100" height="100"/>
+                                        <color key="backgroundColor" red="1" green="0.1450980392" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="5bl-vj-Euh"/>
+                                            <constraint firstAttribute="height" constant="100" id="LWb-1T-wPX"/>
+                                        </constraints>
+                                    </view>
+                                    <view opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YLr-ms-4dD">
+                                        <rect key="frame" x="100" y="300" width="100" height="100"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="Ear-ht-4Z5"/>
+                                            <constraint firstAttribute="width" constant="100" id="ohB-h1-d80"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="YLr-ms-4dD" firstAttribute="top" secondItem="QNK-3h-dSl" secondAttribute="top" constant="300" id="6gT-Y3-gkG"/>
+                                    <constraint firstItem="YLr-ms-4dD" firstAttribute="leading" secondItem="QNK-3h-dSl" secondAttribute="leading" constant="100" id="YaX-bs-s75"/>
+                                    <constraint firstItem="hvJ-rY-SSy" firstAttribute="leading" secondItem="QNK-3h-dSl" secondAttribute="leading" constant="100" id="mie-nx-uPi"/>
+                                    <constraint firstItem="hvJ-rY-SSy" firstAttribute="top" secondItem="QNK-3h-dSl" secondAttribute="top" constant="100" id="qoP-Qq-m77"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="redHeightConstraint" destination="LWb-1T-wPX" id="Csw-R3-JMc"/>
+                                    <outlet property="redLeadingConstraint" destination="mie-nx-uPi" id="fcA-nc-o9B"/>
+                                    <outlet property="redTopConstraint" destination="qoP-Qq-m77" id="Orw-5G-mlE"/>
+                                    <outlet property="redView" destination="hvJ-rY-SSy" id="S3i-4l-nLk"/>
+                                    <outlet property="redWidthConstraint" destination="5bl-vj-Euh" id="EqQ-6o-E2e"/>
+                                    <outlet property="yellowHeightConstraint" destination="Ear-ht-4Z5" id="y6G-jR-dHw"/>
+                                    <outlet property="yellowLeadingConstraint" destination="YaX-bs-s75" id="6ay-Yg-LE5"/>
+                                    <outlet property="yellowTopConstraint" destination="6gT-Y3-gkG" id="yxD-Fr-XjE"/>
+                                    <outlet property="yellowView" destination="YLr-ms-4dD" id="5Ax-w2-X9P"/>
+                                    <outlet property="yellowWidthConstraint" destination="ohB-h1-d80" id="09c-9r-mvE"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="N09-9N-jgI" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="5ui-ak-EdZ"/>
+                            <constraint firstItem="QNK-3h-dSl" firstAttribute="height" secondItem="N09-9N-jgI" secondAttribute="height" id="8Nq-fg-B21"/>
+                            <constraint firstItem="QNK-3h-dSl" firstAttribute="centerY" secondItem="N09-9N-jgI" secondAttribute="centerY" id="93R-Rp-FpY"/>
                             <constraint firstItem="N09-9N-jgI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BBA-3e-uAr"/>
                             <constraint firstItem="N09-9N-jgI" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="hjn-03-tYR"/>
+                            <constraint firstItem="QNK-3h-dSl" firstAttribute="width" secondItem="N09-9N-jgI" secondAttribute="width" id="ksa-Jq-zvl"/>
                             <constraint firstItem="N09-9N-jgI" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="llI-W0-HLA"/>
+                            <constraint firstItem="QNK-3h-dSl" firstAttribute="centerX" secondItem="N09-9N-jgI" secondAttribute="centerX" id="xPA-du-X05"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="FUr-wW-j0M" appends="YES" id="5ZQ-eX-nQq"/>
@@ -51,7 +90,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="cameraView" destination="N09-9N-jgI" id="69D-IC-rms"/>
-                        <outlet property="highlightView" destination="hvJ-rY-SSy" id="T9Z-cl-1MR"/>
+                        <outlet property="trackingView" destination="QNK-3h-dSl" id="VdD-6p-gr9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
