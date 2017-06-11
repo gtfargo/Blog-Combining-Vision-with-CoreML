@@ -13,6 +13,10 @@
 		502B157C1EECA3A000E7E5E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 502B157B1EECA3A000E7E5E9 /* Assets.xcassets */; };
 		502B157F1EECA3A000E7E5E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 502B157D1EECA3A000E7E5E9 /* LaunchScreen.storyboard */; };
 		502B15871EECA55600E7E5E9 /* TrackingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502B15861EECA55600E7E5E9 /* TrackingView.swift */; };
+		502B15891EECADF300E7E5E9 /* GoogLeNetPlaces.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 502B15881EECADF300E7E5E9 /* GoogLeNetPlaces.mlmodel */; };
+		502B158B1EECB98F00E7E5E9 /* FrameworkExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502B158A1EECB98F00E7E5E9 /* FrameworkExtensions.swift */; };
+		50A0FBCE1EECCC1C00827F1A /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 50A0FBCD1EECCC1C00827F1A /* Inceptionv3.mlmodel */; };
+		50A0FBD01EECCC9400827F1A /* Resnet50.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 50A0FBCF1EECCC9400827F1A /* Resnet50.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		502B157E1EECA3A000E7E5E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		502B15801EECA3A000E7E5E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		502B15861EECA55600E7E5E9 /* TrackingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingView.swift; sourceTree = "<group>"; };
+		502B15881EECADF300E7E5E9 /* GoogLeNetPlaces.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = GoogLeNetPlaces.mlmodel; path = ../../../../../Desktop/GoogLeNetPlaces.mlmodel; sourceTree = "<group>"; };
+		502B158A1EECB98F00E7E5E9 /* FrameworkExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameworkExtensions.swift; sourceTree = "<group>"; };
+		50A0FBCD1EECCC1C00827F1A /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = Inceptionv3.mlmodel; path = ../../../../../Desktop/Inceptionv3.mlmodel; sourceTree = "<group>"; };
+		50A0FBCF1EECCC9400827F1A /* Resnet50.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = Resnet50.mlmodel; path = ../../../../../Desktop/Resnet50.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +65,13 @@
 			isa = PBXGroup;
 			children = (
 				502B15741EECA3A000E7E5E9 /* AppDelegate.swift */,
+				502B158A1EECB98F00E7E5E9 /* FrameworkExtensions.swift */,
 				502B15761EECA3A000E7E5E9 /* ViewController.swift */,
 				502B15861EECA55600E7E5E9 /* TrackingView.swift */,
 				502B15781EECA3A000E7E5E9 /* Main.storyboard */,
+				50A0FBCF1EECCC9400827F1A /* Resnet50.mlmodel */,
+				50A0FBCD1EECCC1C00827F1A /* Inceptionv3.mlmodel */,
+				502B15881EECADF300E7E5E9 /* GoogLeNetPlaces.mlmodel */,
 				502B157B1EECA3A000E7E5E9 /* Assets.xcassets */,
 				502B157D1EECA3A000E7E5E9 /* LaunchScreen.storyboard */,
 				502B15801EECA3A000E7E5E9 /* Info.plist */,
@@ -138,9 +150,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50A0FBD01EECCC9400827F1A /* Resnet50.mlmodel in Sources */,
 				502B15771EECA3A000E7E5E9 /* ViewController.swift in Sources */,
+				50A0FBCE1EECCC1C00827F1A /* Inceptionv3.mlmodel in Sources */,
+				502B158B1EECB98F00E7E5E9 /* FrameworkExtensions.swift in Sources */,
 				502B15871EECA55600E7E5E9 /* TrackingView.swift in Sources */,
 				502B15751EECA3A000E7E5E9 /* AppDelegate.swift in Sources */,
+				502B15891EECADF300E7E5E9 /* GoogLeNetPlaces.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +332,7 @@
 				502B15851EECA3A000E7E5E9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -47,38 +47,24 @@ class TrackingView: UIView {
         self.yellowViewLabel?.text = text
     }
     
-    func setYellowCenterFrame(_ frame: CGRect) {
-        let newOriginX = frame.origin.x - floor(frame.size.width / 2)
-        let newOriginY = frame.origin.y - floor(frame.size.height / 2)
-        let newOrigin = CGPoint(x: newOriginX, y: newOriginY)
-        let newFrame = CGRect(origin: newOrigin, size: frame.size)
-        
-        self.yellowTopConstraint?.constant = newFrame.origin.y
-        self.yellowLeadingConstraint?.constant = newFrame.origin.x
-        self.yellowHeightConstraint?.constant = newFrame.size.height
-        self.yellowWidthConstraint?.constant = newFrame.size.width
+    func setYellowViewFrame(_ frame: CGRect) {
+        self.yellowTopConstraint?.constant = frame.origin.y
+        self.yellowLeadingConstraint?.constant = frame.origin.x
+        self.yellowHeightConstraint?.constant = frame.size.height
+        self.yellowWidthConstraint?.constant = frame.size.width
     }
     
-    func setRedCenterFrame(_ frame: CGRect) {
-        let newOriginX = frame.origin.x - floor(frame.size.width / 2)
-        let newOriginY = frame.origin.y - floor(frame.size.height / 2)
-        let newOrigin = CGPoint(x: newOriginX, y: newOriginY)
-        let newFrame = CGRect(origin: newOrigin, size: frame.size)
-        
-        self.redTopConstraint?.constant = newFrame.origin.y
-        self.redLeadingConstraint?.constant = newFrame.origin.x
-        self.redHeightConstraint?.constant = newFrame.size.height
-        self.redWidthConstraint?.constant = newFrame.size.width
+    func setRedViewFrame(_ frame: CGRect) {
+        self.redTopConstraint?.constant = frame.origin.y
+        self.redLeadingConstraint?.constant = frame.origin.x
+        self.redHeightConstraint?.constant = frame.size.height
+        self.redWidthConstraint?.constant = frame.size.width
     }
     
     func reset() {
-        self.setYellowCenterFrame(.zero)
-        self.setRedCenterFrame(.zero)
+        self.setYellowViewFrame(.zero)
+        self.setRedViewFrame(.zero)
         self.setYellowViewLabelText(nil)
-    }
-    
-    override func prepareForInterfaceBuilder() {
-        super.prepareForInterfaceBuilder()
     }
     
 }
